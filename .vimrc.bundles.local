@@ -1,2 +1,2 @@
 Plug 'terryma/vim-multiple-cursors'
-Plug 'matze/vim-move'
+Plug 'AndrewRadev/switch.vim'
