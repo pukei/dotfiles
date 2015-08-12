@@ -17,6 +17,8 @@
   autocrlf = input
 [merge]
   ff = only
+	tool = vimdiff
+	conflictstyle = diff3
 [commit]
   template = ~/.gitmessage
 [fetch]
@@ -32,3 +34,5 @@
 [user]
 	name = paresharma
 	email = paresh.brahm@gmail.com
+[mergetool]
+	prompt = false
