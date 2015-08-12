@@ -1,0 +1,11 @@
+" execute pathogen#infect()
+
+" removed in the vimrc file too
+" set textwidth=100
+
+" check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
+set autoread
+au CursorHold * checktime
+
+" press F5 to delete all trailing whitespace
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>

@@ -1,0 +1,2 @@
+Plug 'terryma/vim-multiple-cursors'
+Plug 'matze/vim-move'
