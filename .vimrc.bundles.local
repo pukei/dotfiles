@@ -1,2 +1,3 @@
 Plug 'terryma/vim-multiple-cursors'
 Plug 'AndrewRadev/switch.vim'
+Plug 'altercation/vim-colors-solarized'
