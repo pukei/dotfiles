@@ -24,7 +24,14 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " colorscheme
 set background=dark
-if !has('gui_running')
-  let g:solarized_termcolors=256
-endif
+" Download and intall solarized theme for iterm2:
+" https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
+" if !has('gui_running')
+"   let g:solarized_termcolors=256
+" endif
 colorscheme solarized
+
+" this is for macvim vim-rspec
+if has('gui_running')
+  let g:rspec_runner = "os_x_iterm"
+endif
