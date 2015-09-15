@@ -35,3 +35,6 @@ colorscheme solarized
 if has('gui_running')
   let g:rspec_runner = "os_x_iterm"
 endif
+
+" Use regexengine=1 for faster syntax highlighting
+set regexpengine=1
