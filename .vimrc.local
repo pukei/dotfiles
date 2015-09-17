@@ -38,3 +38,11 @@ endif
 
 " Use regexengine=1 for faster syntax highlighting
 set regexpengine=1
+
+" Markdown to HTML
+" Download and copy Markdown.pl => http://daringfireball.net/projects/markdown/
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
+" command! Markdown %!/usr/local/bin/Markdown.pl --html4tags %
+
+" FormatJson
+command! FormatJSON %!python -m json.tool
