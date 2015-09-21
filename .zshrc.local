@@ -7,7 +7,7 @@ export EPAB_SOLR_HOME=/Users/pareshsharma/Workspace/kp-epab-solr/local-server/./
 export EPAB_SQLITE_DB=/Users/pareshsharma/Workspace/kp-epab-solr/dbseeds/seeds.sqlite3
 export EPAB_SQLITE_DB_TEST=/Users/pareshsharma/Workspace/kp-epab-solr/dbseeds/seeds_test.sqlite3
 # export mybring_auth_protected=false
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
 # b-script
 export BRING_DIR="$HOME/Workspace"
