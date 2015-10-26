@@ -1,8 +1,5 @@
 " execute pathogen#infect()
 
-" removed in the vimrc file too
-" set textwidth=100
-
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
 set autoread
 au CursorHold * checktime
@@ -10,6 +7,7 @@ au CursorHold * checktime
 " press F5 to delete all trailing whitespace
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+" Move lines up/down
 " Normal mode
 noremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
@@ -64,3 +62,8 @@ map <leader>gl :CtrlPClearCache<cr>\|:CtrlP lib<cr>
 map <leader>gp :CtrlPClearCache<cr>\|:CtrlP public<cr>
 map <leader>gs :CtrlPClearCache<cr>\|:CtrlP spec<cr>
 map <leader>gt :CtrlPClearCache<cr>\|:CtrlP test<cr>
+
+
+" Down and up lines single row even for wrapped lines
+nnoremap j gj
+nnoremap k gk
