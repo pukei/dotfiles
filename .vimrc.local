@@ -35,9 +35,6 @@ if has('gui_running')
   let g:rspec_runner = "os_x_iterm"
 endif
 
-" Use regexengine=1 for faster syntax highlighting
-set regexpengine=1
-
 " Markdown to HTML
 " Download and copy Markdown.pl => http://daringfireball.net/projects/markdown/
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
