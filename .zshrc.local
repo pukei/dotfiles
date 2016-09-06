@@ -2,45 +2,9 @@ alias be="bundle exec"
 alias bi="bundle install"
 alias br="bundle exec rails s"
 export PATH="$HOME/.rbenv/shims:$PATH"
-export EPAB_SOLR_JETTY=/Users/pareshsharma/Workspace/kp-epab-solr/local-server
-export EPAB_SOLR_HOME=/Users/pareshsharma/Workspace/kp-epab-solr/local-server/./solr-home
-export EPAB_SQLITE_DB=/Users/pareshsharma/Workspace/kp-epab-solr/dbseeds/seeds.sqlite3
-export EPAB_SQLITE_DB_TEST=/Users/pareshsharma/Workspace/kp-epab-solr/dbseeds/seeds_test.sqlite3
-# export mybring_auth_protected=false
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
-
-# b-script
-export BRING_DIR="$HOME/Workspace"
-if [[ -d "$BRING_DIR" && -x $BRING_DIR/b-scripts/bin/b ]]; then
-    eval "$($BRING_DIR/b-scripts/bin/b init -)"
-fi
 
 # rbenv
 if [ $(command -v rbenv) ]; then
     eval "$(rbenv init -)"
 fi
-
-# proxy config
-# export https_proxy=http://sig-web.posten.no:3128
-# export http_proxy=http://sig-web.posten.no:3128
-# git config --global http.proxy http://sig-web.posten.no:3128
-
-# GIT ALIASES
-# alias g=git
-# alias ga='git add'
-# alias gb='git branch'
-# alias gba='git branch -a'
-# alias gc='git commit -v'
-# alias gl='git pull'
-# alias gp='git push'
-# alias gst='git status -sb'
-# alias gsd='git svn dcommit'
-# alias gsr='git svn rebase'
-# alias gs='git stash'
-# alias gsa='git stash apply'
-# alias gr='git stash && git svn rebase && git svn dcommit && git stash pop' # git refresh
-# alias gd='git diff | $GIT_EDITOR -'
-# alias gmv='git mv'
-# alias gho='$(git remote -v 2> /dev/null | grep github | sed -e "s/.*git\:\/\/\([a-z]\.\)*/\1/" -e "s/\.git.*//g" -e "s/.*@\(.*\)$/\1/g" | tr ":" "/" | tr -d "\011" | sed -e "s/^/open http:\/\//g" | uniq)'
-# alias gd='git diff'
-# alias gco='git checkout'
