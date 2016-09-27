@@ -64,3 +64,8 @@ map <leader>gt :CtrlPClearCache<cr>\|:CtrlP test<cr>
 " Down and up lines single row even for wrapped lines
 nnoremap j gj
 nnoremap k gk
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
