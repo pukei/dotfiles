@@ -60,12 +60,19 @@ map <leader>gp :CtrlPClearCache<cr>\|:CtrlP public<cr>
 map <leader>gs :CtrlPClearCache<cr>\|:CtrlP spec<cr>
 map <leader>gt :CtrlPClearCache<cr>\|:CtrlP test<cr>
 
-
 " Down and up lines single row even for wrapped lines
 nnoremap j gj
 nnoremap k gk
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+if !empty(matchstr(system('rbenv version'), 'jruby'))
+  " configure syntastic syntax checking to check on open as well as save
+  let g:syntastic_check_on_open=1
+  let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+  let g:syntastic_eruby_ruby_quiet_messages =
+        \ {"regex": "possibly useless use of a variable in void context"}
+
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
+endif
