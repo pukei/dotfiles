@@ -1,0 +1,4 @@
+alias be="bundle exec"
+alias bi="bundle install"
+alias br="bundle exec rails s"
+alias gti="git"

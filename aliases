@@ -16,4 +16,4 @@ alias s="rspec"
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Include custom aliases
-[[ -f ~/.aliases.local ]] && source ~/.aliases.local
+[[ -f ~/dotfiles/aliases.local ]] && source ~/dotfiles/aliases.local
