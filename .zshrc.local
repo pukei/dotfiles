@@ -1,6 +1,3 @@
-alias be="bundle exec"
-alias bi="bundle install"
-alias br="bundle exec rails s"
 export PATH="$HOME/.rbenv/shims:$PATH"
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
