@@ -77,3 +77,8 @@ nnoremap <leader>v :exe "vertical resize -60"<CR>
 " Resize horizontal split
 nnoremap <leader>H :exe "resize +20"<CR>
 nnoremap <leader>h :exe "resize -20"<CR>
+
+" Go to file in new splits/tabs
+nnoremap gfv :vertical wincmd f<CR>
+nnoremap gfs :exe "wincmd f"<CR>
+nnoremap gft :exe "wincmd gf"<CR>
