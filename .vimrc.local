@@ -33,6 +33,7 @@ colorscheme solarized
 " this is for macvim vim-rspec
 if has('gui_running')
   let g:rspec_runner = "os_x_iterm"
+  set guioptions=
 endif
 
 " Markdown to HTML
