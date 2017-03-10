@@ -89,4 +89,4 @@ let g:syntastic_python_python_exec = 'python3'
 
 " find all tada's
 " command TADA vimgrep! /TODO\|FIXME\|BUG/j * | cw
-command TADA silent! grep! "TODO\|FIXME\|BUG" |cw|redraw!
+command! TADA silent! grep! "TODO\|FIXME\|BUG" |cw|redraw!
