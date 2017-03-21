@@ -18,8 +18,8 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-if filereadable(expand("~/dotfiles/vimrc.bundles"))
-  source ~/dotfiles/vimrc.bundles
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
 endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
@@ -151,6 +151,6 @@ set complete+=kspell
 set diffopt+=vertical
 
 " Local config
-if filereadable($HOME . "/dotfiles/.vimrc.local")
-  source ~/dotfiles/.vimrc.local
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
 endif

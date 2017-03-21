@@ -1,7 +1,4 @@
-export PATH="$HOME/.rbenv/shims:$PATH"
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
-
-# rbenv
-if [ $(command -v rbenv) ]; then
-    eval "$(rbenv init -)"
-fi
+export ZSH=~/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
