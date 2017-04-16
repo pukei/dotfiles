@@ -25,9 +25,9 @@ set background=dark
 " Download and intall solarized theme for iterm2:
 " https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 " Or tone down to 256 :(
-" if !has('gui_running')
-"   let g:solarized_termcolors=256
-" endif
+if !has('gui_running')
+  let g:solarized_termcolors=256
+endif
 colorscheme solarized
 
 " this is for macvim vim-rspec
