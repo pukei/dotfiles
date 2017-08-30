@@ -34,6 +34,7 @@ colorscheme solarized
 if has('gui_running')
   let g:rspec_runner = "os_x_iterm"
   set guioptions=
+  set transparency=10
 endif
 
 " Markdown to HTML
