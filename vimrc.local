@@ -91,3 +91,31 @@ let g:syntastic_python_python_exec = 'python3'
 " find all tada's
 " command TADA vimgrep! /TODO\|FIXME\|BUG/j * | cw
 command! TADA silent! grep! "TODO\|FIXME\|BUG" |cw|redraw!
+
+" Automatic YouCompleteMe omni-completion
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+else
+  " let g:ycm_semantic_triggers['typescript'] = ['.']
+  let g:ycm_semantic_triggers =  {
+        \   'c' : ['->', '.'],
+        \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+        \             're!\[.*\]\s'],
+        \   'ocaml' : ['.', '#'],
+        \   'cpp,objcpp' : ['->', '.', '::'],
+        \   'perl' : ['->'],
+        \   'php' : ['->', '::'],
+        \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+        \   'ruby' : ['.', '::'],
+        \   'lua' : ['.', ':'],
+        \   'erlang' : [':'],
+        \ }
+endif
+
+" typescript-vim
+" Compilation errors in the QuickFix window
+" run ***make*** while editing
+" let g:typescript_compiler_binary = 'tsc'
+" let g:typescript_compiler_options = ''
+" autocmd QuickFixCmdPost [^l]* nested cwindow
+" autocmd QuickFixCmdPost    l* nested lwindow
