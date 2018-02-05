@@ -119,3 +119,8 @@ endif
 " let g:typescript_compiler_options = ''
 " autocmd QuickFixCmdPost [^l]* nested cwindow
 " autocmd QuickFixCmdPost    l* nested lwindow
+
+" for .hql files
+au BufNewFile,BufRead *.hql set filetype=sql
+" for .q files
+" au BufNewFile,BufRead *.q set filetype=sql
