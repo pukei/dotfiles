@@ -124,3 +124,5 @@ endif
 au BufNewFile,BufRead *.hql set filetype=sql
 " for .q files
 " au BufNewFile,BufRead *.q set filetype=sql
+
+let @y='"*yiw'

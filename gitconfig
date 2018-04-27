@@ -34,8 +34,8 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = paresharma
-	email = paresharma@gmail.com
+	name = sharmaparesh
+	email = paresh@tripla.jp
 [mergetool]
 	prompt = false
 [difftool "sourcetree"]
