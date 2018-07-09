@@ -1,6 +1,7 @@
 alias be="bundle exec"
 alias bi="bundle install"
-alias br="bundle exec rails s"
+alias br="bundle exec rails s -b 0.0.0.0"
+alias bc="bundle exec rails c"
 alias gti="git"
 alias ibsui="cd ~/Workspace/ibs/gep-ui-ibs/"
 alias ibsmi="cd ~/Workspace/ibs/gep-ui-merchant-inquiry/"

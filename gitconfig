@@ -29,13 +29,13 @@
 [include]
   path = ~/.gitconfig.local
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [user]
-	name = sharmaparesh
-	email = paresh@tripla.jp
+	name = paresharma
+	email = paresharma@gmail.com
 [mergetool]
 	prompt = false
 [difftool "sourcetree"]
