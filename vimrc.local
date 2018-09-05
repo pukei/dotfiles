@@ -126,6 +126,3 @@ au BufNewFile,BufRead *.hql set filetype=sql
 " au BufNewFile,BufRead *.q set filetype=sql
 
 let @y='"*yiw'
-
-" allow mouse interaction
-set mouse=a
