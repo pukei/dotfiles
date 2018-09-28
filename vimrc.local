@@ -112,6 +112,8 @@ else
         \ }
 endif
 
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
 " typescript-vim
 " Compilation errors in the QuickFix window
 " run ***make*** while editing
@@ -126,3 +128,6 @@ au BufNewFile,BufRead *.hql set filetype=sql
 " au BufNewFile,BufRead *.q set filetype=sql
 
 let @y='"*yiw'
+
+" vue as html
+au BufRead,BufNewFile *.vue set ft=html
