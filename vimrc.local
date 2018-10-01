@@ -133,3 +133,6 @@ noremap <leader>Y viw"*y<S-:>Ag <C-r>*<CR>
 
 " vue as html
 au BufRead,BufNewFile *.vue set ft=html
+
+" gf with vue and js
+set suffixesadd+=.js,.vue
