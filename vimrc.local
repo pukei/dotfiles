@@ -136,3 +136,6 @@ au BufRead,BufNewFile *.vue set ft=html
 
 " gf with vue and js
 set suffixesadd+=.js,.vue
+
+" highlight latest search
+set hlsearch
