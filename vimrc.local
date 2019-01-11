@@ -139,3 +139,7 @@ set suffixesadd+=.js,.vue
 
 " highlight latest search
 set hlsearch
+
+" Mapping for airblade/vim-localorie
+nnoremap <silent> <leader>lt :call localorie#translate()<CR>
+nnoremap <silent> <leader>le :call localorie#expand_key()<CR>
