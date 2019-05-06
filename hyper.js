@@ -14,7 +14,7 @@ module.exports = {
     // font family with optional fallbacks
     // fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
     fontFamily: 'Roboto Mono for Powerline',
-	
+
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
 
@@ -37,7 +37,7 @@ module.exports = {
     cursorShape: 'BLOCK',
 
     // set to `true` (without backticks and without quotes) for blinking cursor
-    cursorBlink: false,
+    cursorBlink: true,
 
     // color of the text
     foregroundColor: '#fff',
@@ -104,6 +104,7 @@ module.exports = {
     //
     // PowerShell on Windows
     // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
+    // shell: 'C:\\Windows\\System32\\wsl.exe',
     shell: 'C:\\Windows\\System32\\bash.exe',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
@@ -114,10 +115,10 @@ module.exports = {
     env: {},
 
     // set to `false` for no bell
-    bell: 'SOUND',
+    bell: false,
 
     // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
-    copyOnSelect: false,
+    copyOnSelect: true,
 
     // if `true` (without backticks and without quotes), hyper will be set as the default protocol client for SSH
     defaultSSHApp: true,
@@ -139,10 +140,10 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    //"hyper-dracula"
+    // "hyper-dracula"
     "hyper-solarized-dark"
-    //"hyper-solarized-light"
-    //"hyper-material-theme"
+    // "hyper-solarized-light"
+    // "hyper-material-theme"
   ],
 
   // in development, you can create a directory under
