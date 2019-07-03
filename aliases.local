@@ -3,4 +3,8 @@ alias bi="bundle install"
 alias br="bundle exec rails s -b 0.0.0.0"
 alias bc="bundle exec rails c"
 alias gti="git"
-alias w=cd ~/Workspace/$1
+alias w=cd ~/workspace/$1
+
+alias work="cd /mnt/c/Users/pares/Workspace"
+alias rdm="be rake db:migrate && gco db/schema.rb"
+alias snap="echo \"gem 'bootsnap', require: false\" >> Gemfile && echo \"require 'bootsnap/setup'\" >> config/boot.rb && bi"
