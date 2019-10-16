@@ -1,28 +1,39 @@
-# ruby ~/dotfiles/tmux.rb tripla
-# ruby ~/dotfiles/tmux.rb tripla_cb
-# ruby ~/dotfiles/tmux.rb tripla_bw
-# ruby ~/dotfiles/tmux.rb tripla_sb
-# ruby ~/dotfiles/tmux.rb tripla_cm
-# ruby ~/dotfiles/tmux.rb ships
-#
-# ruby ~/dotfiles/tmux.rb tripla start
+begin
+  project = ARGV[0].to_sym
+  start = ARGV[1]
 
-project = ARGV[0].to_sym
-start = ARGV[1]
+  WORKSPACE = {
+    bw: ['~/workspace/tripla_booking_widget', 2, 'yarn server --port 8081'],
+    cb: ['~/workspace/triplabot2.0', 2, 'yarn server --port 8080'],
+    cm: ['~/workspace/tripla_frontend_app', 2, 'yarn server --port 8083'],
+    s:  ['~/workspace/ships', 3, 'br -p 4000'],
+    sb: ['~/workspace/tripla_search_bar', 2, 'yarn server --port 8082'],
+    sc: ['~/workspace/site-controller-api', 3, 'br -p 5000'],
+    t:  ['~/workspace/tripla', 3, 'br']
+  }.freeze
 
-WORKSPACE = {
-  sc: ['~/workspace/site-controller-api', 3, 'br -p 5000'],
-  s:  ['~/workspace/ships', 3, 'br -p 4000'],
-  t:  ['~/workspace/tripla', 3, 'br'],
-  bw: ['~/workspace/tripla_booking_widget', 2, 'yarn server --port 8081'],
-  cb: ['~/workspace/triplabot2.0', 2, 'yarn server --port 8080'],
-  cm: ['~/workspace/tripla_frontend_app', 2, 'yarn server --port 8083'],
-  sb: ['~/workspace/tripla_search_bar', 2, 'yarn server --port 8082']
-}.freeze
+  workspace = WORKSPACE[project][0]
+  more_windows = WORKSPACE[project][1]
+  start_server = WORKSPACE[project][2]
 
-workspace = WORKSPACE[project][0]
-more_windows = WORKSPACE[project][1]
-start_server = WORKSPACE[project][2]
+rescue
+  msg = <<~TEXT
+
+    \t\033[31mTry one of these:\033[0m
+    \033[32m
+    \truby ~/dotfiles/tmux.rb bw
+    \truby ~/dotfiles/tmux.rb cb
+    \truby ~/dotfiles/tmux.rb cm
+    \truby ~/dotfiles/tmux.rb s
+    \truby ~/dotfiles/tmux.rb sb
+    \truby ~/dotfiles/tmux.rb t
+
+    \truby ~/dotfiles/tmux.rb t start
+    \033[0m
+  TEXT
+
+  abort msg
+end
 
 # start servers
 `~/start-services` if start == 'start'
