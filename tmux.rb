@@ -3,11 +3,11 @@ begin
   start = ARGV[1]
 
   WORKSPACE = {
-    bw: ['~/workspace/tripla_booking_widget', 2, 'yarn server --port 8081'],
-    cb: ['~/workspace/triplabot2.0', 2, 'yarn server --port 8080'],
+    bw: ['~/workspace/tripla_booking_widget', 2, 'yarn server --port 8080'],
+    cb: ['~/workspace/triplabot2.0', 2, 'yarn server --port 8082'],
     cm: ['~/workspace/tripla_frontend_app', 2, 'yarn server --port 8083'],
     s:  ['~/workspace/ships', 3, 'br -p 4000'],
-    sb: ['~/workspace/tripla_search_bar', 2, 'yarn server --port 8082'],
+    sb: ['~/workspace/tripla_search_bar', 2, 'yarn server --port 8081'],
     sc: ['~/workspace/site-controller-api', 3, 'br -p 5000'],
     t:  ['~/workspace/tripla', 3, 'br']
   }.freeze
