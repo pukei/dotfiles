@@ -47,7 +47,7 @@ more_windows.times do |i|
 end
 
 (more_windows + 1).times do |i|
-  `tmux send-keys -t #{project}:#{i + 1} "cd #{workspace}; export RBENV_VERSION=" C-m`
+  `tmux send-keys -t #{project}:#{i + 1} "cd #{workspace}" C-m`
 
   if i == 0
     `tmux send-keys -t #{project}:1 "vim" C-m`

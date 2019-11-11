@@ -7,4 +7,12 @@ alias w=cd ~/workspace/$1
 
 alias work="cd /mnt/c/Users/pares/Workspace"
 alias rdm="be rake db:migrate && gco db/schema.rb"
-alias snap="echo \"gem 'bootsnap', require: false\" >> Gemfile && echo \"require 'bootsnap/setup'\" >> config/boot.rb && bi"
+alias snap="echo \"gem 'bootsnap', '>= 1.1.0', '< 1.4.2', require: false\" >> Gemfile && echo \"require 'bootsnap/setup'\" >> config/boot.rb && bi"
+
+# take-over tmux from a different display
+alias takeover="tmux detach -a"
+
+# trigger tmux-yank
+alias tank="bash ~/.tmux/plugins/tmux-yank/yank.tmux"
+
+alias tmux.rb="ruby ~/dotfiles/tmux.rb"
