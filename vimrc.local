@@ -73,12 +73,12 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Resize vertical split
-nnoremap <leader>V :exe "vertical resize +60"<CR>
-nnoremap <leader>v :exe "vertical resize -60"<CR>
+nnoremap <leader>V :exe "vertical resize +10"<CR>
+nnoremap <leader>v :exe "vertical resize -10"<CR>
 
 " Resize horizontal split
-nnoremap <leader>H :exe "resize +20"<CR>
-nnoremap <leader>h :exe "resize -20"<CR>
+nnoremap <leader>H :exe "resize +10"<CR>
+nnoremap <leader>h :exe "resize -10"<CR>
 
 " Go to file in new splits/tabs
 " nmap gfv :vertical wincmd f<CR>
