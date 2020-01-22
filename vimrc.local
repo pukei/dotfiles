@@ -174,3 +174,6 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! FormatXML call DoPrettyXML()
+
+
+set tags^=./.git/tags;
