@@ -1,12 +1,15 @@
-alias be="bundle exec"
-alias bi="bundle install"
-alias br="bundle exec rails s -b 0.0.0.0"
-alias bc="bundle exec rails c"
+alias be="./bin/bundle exec"
+alias bi="./bin/bundle install"
+alias br="./bin/rails s -b 0.0.0.0"
+alias bc="./bin/rails c"
+alias bs="./bin/rspec"
+
 alias gti="git"
 alias w=cd ~/workspace/$1
 
 alias work="cd /mnt/c/Users/pares/Workspace"
-alias rdm="be rake db:migrate && gco db/schema.rb"
+
+alias rdm="./bin/rake db:migrate && gco db/schema.rb"
 alias snap="echo \"gem 'bootsnap', '>= 1.1.0', '< 1.4.2', require: false\" >> Gemfile && echo \"require 'bootsnap/setup'\" >> config/boot.rb && bi"
 
 # take-over tmux from a different display
