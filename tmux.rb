@@ -2,6 +2,11 @@ begin
   project = ARGV[0].to_sym
   start = ARGV[1]
 
+  START =  {
+    start_daemons: 'start', # MySQL, Postgres, Redis
+    pull: 'pull'            # try to switch to develop and git pull
+  }.freeze
+
   WORKSPACE = {
     bw:  ['~/workspace/tripla_booking_widget', 2, 'yarn server --port 8080'],
     cb:  ['~/workspace/triplabot2.0', 2, 'yarn server --port 8082'],
@@ -21,7 +26,7 @@ begin
 rescue
   msg = <<~TEXT
 
-    \t\033[31mTry one of these:\033[0m
+    \t\033[31m# Try one of these:\033[0m
     \033[32m
     \truby ~/dotfiles/tmux.rb bw
     \truby ~/dotfiles/tmux.rb cb
@@ -31,7 +36,11 @@ rescue
     \truby ~/dotfiles/tmux.rb sb
     \truby ~/dotfiles/tmux.rb t
 
+    \t# Start MySQL, Postgres, Redis
     \truby ~/dotfiles/tmux.rb t start
+
+    \t# Try to switch to develop and git pull
+    \truby ~/dotfiles/tmux.rb t pull
     \033[0m
   TEXT
 
@@ -39,7 +48,7 @@ rescue
 end
 
 # start servers
-`~/start-services` if start == 'start'
+`~/start-services` if start == START[:start_daemons]
 
 `tmux start-server`
 
@@ -50,7 +59,9 @@ more_windows.times do |i|
 end
 
 (more_windows + 1).times do |i|
-  if i == 0
+
+  # Don't open vi if the only interest is in running latest develop
+  if i == 0 && start != START[:pull]
     `tmux send-keys -t #{project}:1 "vim" C-m`
   end
 
@@ -66,6 +77,11 @@ end
 
       if si == 2
         `tmux split-window -v #{workspace}`
+      end
+
+      # Try to checkout latest develop
+      if start == START[:pull]
+      `tmux send-keys "git checkout develop; git pull" C-m`
       end
 
       # Run server
