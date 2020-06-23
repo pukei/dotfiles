@@ -19,3 +19,16 @@ alias takeover="tmux detach -a"
 alias tank="bash ~/.tmux/plugins/tmux-yank/yank.tmux"
 
 alias tmux.rb="ruby ~/dotfiles/tmux.rb"
+
+alias ghd="cd ~; nohup /usr/bin/github-desktop &; cd -"
+
+# Set memory limit to VM
+# https://github.com/microsoft/WSL/issues/4166#issuecomment-526725261
+# Free up vmmem memory usage
+# https://github.com/microsoft/WSL/issues/4166#issuecomment-628493643
+alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
+
+# system date is not same with windows
+# https://github.com/microsoft/WSL/issues/4149
+# https://github.com/microsoft/WSL/issues/4114#issuecomment-620527581
+alias sync_clock="sudo hwclock --hctosys"
