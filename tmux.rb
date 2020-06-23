@@ -48,7 +48,7 @@ rescue
 end
 
 # start servers
-`~/start-services` if start == START[:start_daemons]
+`~/.start-services` if start == START[:start_daemons]
 
 `tmux start-server`
 
@@ -81,7 +81,11 @@ end
 
       # Try to checkout latest develop
       if start == START[:pull]
-      `tmux send-keys "git checkout develop; git pull" C-m`
+        cmds = ['git checkout develop', 'git pull']
+        if [:bw, :cb, :cm, :sb].include?(project)
+          cmds << 'yarn install'
+        end
+        `tmux send-keys "#{cmds.join(';')}" C-m`
       end
 
       # Run server
