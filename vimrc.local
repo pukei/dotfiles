@@ -42,21 +42,21 @@ endif
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 " command! Markdown %!/usr/local/bin/Markdown.pl --html4tags %
 
-" FormatJson
-command! FormatJSON %!python -m json.tool
-
 " ctrlP settings
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'fixtures'
+
 " let g:ctrlp_map = '<leader>F'
 map <leader>c  :CtrlPTag<cr>
 map <leader>m  :CtrlPMRU<cr>
 " map <leader>f  :CtrlPClearCache<cr>\|:CtrlP<cr>
 map <leader>ga :CtrlPClearCache<cr>\|:CtrlP app/assets<cr>
+map <leader>gj :CtrlPClearCache<cr>\|:CtrlP app/javascript<cr>
 map <leader>gc :CtrlPClearCache<cr>\|:CtrlP app/controllers<cr>
 map <leader>gh :CtrlPClearCache<cr>\|:CtrlP app/helpers<cr>
 map <leader>gm :CtrlPClearCache<cr>\|:CtrlP app/models<cr>
 map <leader>gv :CtrlPClearCache<cr>\|:CtrlP app/views<cr>
-map <leader>gf :CtrlPClearCache<cr>\|:CtrlP features<cr>
+map <leader>gf :CtrlPClearCache<cr>\|:CtrlP fixtures<cr>
 map <leader>gl :CtrlPClearCache<cr>\|:CtrlP lib<cr>
 map <leader>gp :CtrlPClearCache<cr>\|:CtrlP public<cr>
 map <leader>gs :CtrlPClearCache<cr>\|:CtrlP app/services<cr>
@@ -175,5 +175,7 @@ function! DoPrettyXML()
 endfunction
 command! FormatXML call DoPrettyXML()
 
+" FormatJson
+command! FormatJSON %!python -m json.tool
 
 set tags^=./.git/tags;

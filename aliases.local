@@ -1,6 +1,7 @@
 alias be="./bin/bundle exec"
 alias bi="./bin/bundle install"
-alias br="./bin/rails s -b 0.0.0.0"
+# alias br="./bin/rails s -b 0.0.0.0"
+alias br="[[ -f ~/.whost  ]] && source ~/.whost; ./bin/rails s -b 0.0.0.0"
 alias bc="./bin/rails c"
 alias bs="./bin/rspec"
 
@@ -9,7 +10,9 @@ alias w=cd ~/workspace/$1
 
 alias work="cd /mnt/c/Users/pares/Workspace"
 
-alias rdm="./bin/rake db:migrate && gco db/schema.rb"
+alias rdm="./bin/rake db:migrate && ./bin/rake db:migrate RAILS_ENV=test && gco db/schema.rb"
+alias rdmt="./bin/rake db:migrate RAILS_ENV=test && gco db/schema.rb"
+
 alias snap="echo \"gem 'bootsnap', '>= 1.1.0', '< 1.4.2', require: false\" >> Gemfile && echo \"require 'bootsnap/setup'\" >> config/boot.rb && bi"
 
 # take-over tmux from a different display
@@ -32,3 +35,6 @@ alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a 
 # https://github.com/microsoft/WSL/issues/4149
 # https://github.com/microsoft/WSL/issues/4114#issuecomment-620527581
 alias sync_clock="sudo hwclock --hctosys"
+
+# retart network-manager
+alias restart_network="sudo /etc/init.d/network-manager restart"

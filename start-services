@@ -4,4 +4,4 @@ sudo /etc/init.d/redis-server start
 
 sudo /etc/init.d/postgresql start
 
-sudo mongod --fork --dbpath ~/mongodb/data/db --logpath ~/mongodb/log/mongod.log
+# sudo mongod --fork --dbpath ~/mongodb/data/db --logpath ~/mongodb/log/mongod.log
