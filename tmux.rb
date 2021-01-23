@@ -1,11 +1,31 @@
-begin
-  project = ARGV[0].to_sym
-  start = ARGV[1]
+require 'optparse'
 
-  START =  {
-    start_daemons: 'start', # MySQL, Postgres, Redis
-    pull: 'pull'            # try to switch to develop and git pull
-  }.freeze
+begin
+  msg = <<~TEXT
+
+    \t\033[31m# Try one of these:\033[0m
+    \033[32m\truby ~/dotfiles/tmux.rb bw|cb|cm|ps|s|sb|t
+
+    \t# Start MySQL, Postgres, Redis
+    \truby ~/dotfiles/tmux.rb t --start
+
+    \t# Switch branch (default: "develop") and git pull
+    \truby ~/dotfiles/tmux.rb t -branch=main
+    \033[0m
+  TEXT
+
+  @options = {}
+
+  OptionParser.new do |opts|
+    opts.banner = "Usage: tmux.rb [options]#{msg}Options:"
+    opts.on('-s', '--start', "\tStart MySQL, Postgres, Redis") do
+      @options[:start] = true
+    end
+
+    opts.on('-b', '--branch[=BRANCH]', "\tSwitch branch (default: \"develop\") and git pull") do |opt|
+      @options[:branch] = opt || 'develop'
+    end
+  end.parse!
 
   WORKSPACE = {
     bw:  ['~/workspace/tripla_booking_widget', 2, 'yarn server --port 8080'],
@@ -19,36 +39,16 @@ begin
     t:   ['~/workspace/tripla', 3, 'br']
   }.freeze
 
+  project = ARGV[0].to_sym
   workspace = '-c ' + WORKSPACE[project][0]
   more_windows = WORKSPACE[project][1]
   start_servers = Array(WORKSPACE[project][2])
-
 rescue
-  msg = <<~TEXT
-
-    \t\033[31m# Try one of these:\033[0m
-    \033[32m
-    \truby ~/dotfiles/tmux.rb bw
-    \truby ~/dotfiles/tmux.rb cb
-    \truby ~/dotfiles/tmux.rb cm
-    \truby ~/dotfiles/tmux.rb ps
-    \truby ~/dotfiles/tmux.rb s
-    \truby ~/dotfiles/tmux.rb sb
-    \truby ~/dotfiles/tmux.rb t
-
-    \t# Start MySQL, Postgres, Redis
-    \truby ~/dotfiles/tmux.rb t start
-
-    \t# Try to switch to develop and git pull
-    \truby ~/dotfiles/tmux.rb t pull
-    \033[0m
-  TEXT
-
   abort msg
 end
 
 # start servers
-`~/.start-services` if start == START[:start_daemons]
+`~/.start-services` if @options[:start]
 
 `tmux start-server`
 
@@ -60,8 +60,8 @@ end
 
 (more_windows + 1).times do |i|
 
-  # Don't open vi if the only interest is in running latest develop
-  if i == 0 && start != START[:pull]
+  # Opne vim in the first window if "branch" is no specified
+  if i == 0 && !@options[:branch]
     `tmux send-keys -t #{project}:1 "vim" C-m`
   end
 
@@ -79,13 +79,13 @@ end
         `tmux split-window -v #{workspace}`
       end
 
-      # Try to checkout latest develop
-      if start == START[:pull]
-        cmds = ['git checkout develop', 'git pull']
-        if [:bw, :cb, :cm, :sb].include?(project)
-          cmds << 'yarn install'
-        end
-        `tmux send-keys "#{cmds.join(';')}" C-m`
+      # Try to checkout the branch and pull
+      if @options[:branch]
+        cmds = ["git checkout #{@options[:branch]}", 'git pull']
+        cmds << 'yarn install' if [:bw, :cb, :cm, :s, :sb].include?(project)
+        cmds << 'rdm' if [:s, :t].include?(project)
+
+        `tmux send-keys "#{cmds.join('; ')}" C-m`
       end
 
       # Run server
