@@ -81,7 +81,7 @@ end
 
       # Try to checkout the branch and pull
       if @options[:branch]
-        cmds = ["git checkout #{@options[:branch]}", 'git pull']
+        cmds = ["git fetch origin #{@options[:branch]}", "git checkout #{@options[:branch]}", 'git pull']
         cmds << 'yarn install' if [:bw, :cb, :cm, :s, :sb].include?(project)
         cmds << 'rdm' if [:s, :t].include?(project)
 
