@@ -179,3 +179,6 @@ command! FormatXML call DoPrettyXML()
 command! FormatJSON %!python -m json.tool
 
 set tags^=./.git/tags;
+
+" Markdown
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'sql']

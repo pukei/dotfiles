@@ -34,5 +34,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/yajs.vim'
 Plug 'mkitt/tabline.vim'
 Plug 'airblade/vim-localorie'
+Plug 'tpope/vim-markdown'
 
 Plug 'paresharma/vim-rhubarb'
