@@ -44,3 +44,10 @@ _load_settings "$HOME/.zsh/configs"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pareshbrahmacharimayum/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pareshbrahmacharimayum/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pareshbrahmacharimayum/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pareshbrahmacharimayum/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/opt/homebrew/bin:$PATH"

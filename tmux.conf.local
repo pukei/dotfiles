@@ -1,2 +1,3 @@
 # set -g mouse on
 # run-shell ~/.tmux/plugins/tmux-yank/yank.tmux
+set -g monitor-bell on

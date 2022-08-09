@@ -29,6 +29,7 @@ set background=dark
 "   let g:solarized_termcolors=256
 " endif
 colorscheme solarized
+let g:airline_theme='papercolor'
 
 " this is for macvim vim-rspec
 if has('gui_running')
@@ -87,6 +88,9 @@ nnoremap <leader>h :exe "resize -10"<CR>
 
 " Let syntastic use python3
 let g:syntastic_python_python_exec = 'python3'
+
+" YAML Checker
+let g:syntastic_yaml_checkers = ['yamllint']
 
 " find all tada's
 " command TADA vimgrep! /TODO\|FIXME\|BUG/j * | cw
@@ -179,3 +183,7 @@ command! FormatXML call DoPrettyXML()
 command! FormatJSON %!python -m json.tool
 
 set tags^=./.git/tags;
+
+let g:rspec_command = "!docker container exec -it api ./bin/rspec {spec}"
+
+" let g:ycm_clangd_binary_path='/opt/homebrew/opt/llvm/bin/clangd'

@@ -15,5 +15,8 @@ alias s="rspec"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+alias ot='aws rds generate-db-auth-token --hostname umamidbprod-aurora-cluster.cluster-ro-cck7jp97iilg.ap-northeast-1.rds.amazonaws.com --port 3306 --region ap-northeast-1 --username paresh | pbcopy; open -a TablePlus'
+alias _ot='aws rds generate-db-auth-token --hostname umamidbprod-aurora-cluster.cluster-cck7jp97iilg.ap-northeast-1.rds.amazonaws.com --port 3306 --region ap-northeast-1 --username paresh | pbcopy; open -a TablePlus'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

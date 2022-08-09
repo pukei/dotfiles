@@ -10,7 +10,7 @@ alias w=cd ~/workspace/$1
 
 alias work="cd /mnt/c/Users/pares/Workspace"
 
-alias rdm="./bin/rake db:migrate && ./bin/rake db:migrate RAILS_ENV=test && gco db/schema.rb"
+alias rdm="./bin/rake db:migrate && ./bin/rake db:migrate RAILS_ENV=test && gco db/schema.rb && ./bin/rake data:migrate"
 alias rdmt="./bin/rake db:migrate RAILS_ENV=test && gco db/schema.rb"
 
 alias snap="echo \"gem 'bootsnap', '>= 1.1.0', '< 1.4.2', require: false\" >> Gemfile && echo \"require 'bootsnap/setup'\" >> config/boot.rb && bi"

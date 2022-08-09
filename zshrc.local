@@ -1,3 +1,5 @@
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export RBENV_VERSION=

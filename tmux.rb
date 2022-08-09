@@ -4,7 +4,7 @@ begin
   msg = <<~TEXT
 
     \t\033[31m# Try one of these:\033[0m
-    \033[32m\truby ~/dotfiles/tmux.rb bw|cb|cm|ps|s|sb|t
+    \033[32m\truby ~/dotfiles/tmux.rb bw|cb|cm|o|ps|s|sb|t
 
     \t# Start MySQL, Postgres, Redis
     \truby ~/dotfiles/tmux.rb t --start
@@ -28,15 +28,16 @@ begin
   end.parse!
 
   WORKSPACE = {
-    bw:  ['~/workspace/tripla_booking_widget', 2, 'yarn server --port 8080'],
-    cb:  ['~/workspace/triplabot2.0', 2, 'yarn server --port 8082'],
-    cm:  ['~/workspace/tripla_frontend_app', 2, 'yarn server --port 8083'],
+    bw:  ['~/workspace/tripla_booking_widget', 2, 'yarn server'],
+    cb:  ['~/workspace/triplabot2.0', 2, 'yarn server'],
+    cm:  ['~/workspace/tripla_frontend_app', 2, 'yarn server'],
     ps:  ['~/workspace/pakku_subbu', 3, 'foreman start'],
     ps3: ['~/workspace/pakku_subbu', 3, ['br -p 7000', 'anycable-go --host=localhost --port=7777 --path=/', 'be anycable']],
+    o:   ['~/workspace/onboarder', 3, 'br -p 9999'],
     s:   ['~/workspace/ships', 3, 'export PORT=4000; br -p 4000'],
     sb:  ['~/workspace/tripla_search_bar', 2, 'yarn server --port 8081'],
     sc:  ['~/workspace/site-controller-api', 3, 'br -p 5000'],
-    t:   ['~/workspace/tripla', 3, 'br']
+    t:   ['~/workspace/tripla', 3, ['docker container exec -it api zsh', 'docker container exec -it api /var/www/apps/tripla/current/docker/tripla-start']]
   }.freeze
 
   project = ARGV[0].to_sym
