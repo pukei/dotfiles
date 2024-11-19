@@ -1,0 +1,7 @@
+# https://stackoverflow.com/questions/61110603/how-to-set-up-working-x11-forwarding-on-wsl2
+export WHOST=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null)
+export DISPLAY=$WHOST:0
+export LOCAL_MONGO=$WHOST:27017
+
+# echo $WHOST
+# echo $DISPLAY

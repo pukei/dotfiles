@@ -1,0 +1,184 @@
+" execute pathogen#infect()
+
+" check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
+set autoread
+au CursorHold * checktime
+
+" press F5 to delete all trailing whitespace
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Move lines up/down
+" Normal mode
+noremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+
+" Insert mode
+inoremap <C-j> <ESC>:m .+1<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
+
+" Visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" colorscheme
+set background=dark
+" Download and intall solarized theme for iterm2:
+" https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
+" Or tone down to 256 :(
+" if !has('gui_running')
+"   let g:solarized_termcolors=256
+" endif
+colorscheme solarized
+
+" this is for macvim vim-rspec
+if has('gui_running')
+  let g:rspec_runner = "os_x_iterm"
+  set guioptions=
+  set transparency=10
+endif
+
+" Markdown to HTML
+" Download and copy Markdown.pl => http://daringfireball.net/projects/markdown/
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
+" command! Markdown %!/usr/local/bin/Markdown.pl --html4tags %
+
+" ctrlP settings
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'fixtures'
+
+" let g:ctrlp_map = '<leader>F'
+map <leader>c  :CtrlPTag<cr>
+map <leader>m  :CtrlPMRU<cr>
+" map <leader>f  :CtrlPClearCache<cr>\|:CtrlP<cr>
+map <leader>ga :CtrlPClearCache<cr>\|:CtrlP app/assets<cr>
+map <leader>gj :CtrlPClearCache<cr>\|:CtrlP app/javascript<cr>
+map <leader>gc :CtrlPClearCache<cr>\|:CtrlP app/controllers<cr>
+map <leader>gh :CtrlPClearCache<cr>\|:CtrlP app/helpers<cr>
+map <leader>gm :CtrlPClearCache<cr>\|:CtrlP app/models<cr>
+map <leader>gv :CtrlPClearCache<cr>\|:CtrlP app/views<cr>
+map <leader>gf :CtrlPClearCache<cr>\|:CtrlP fixtures<cr>
+map <leader>gl :CtrlPClearCache<cr>\|:CtrlP lib<cr>
+map <leader>gp :CtrlPClearCache<cr>\|:CtrlP public<cr>
+map <leader>gs :CtrlPClearCache<cr>\|:CtrlP app/services<cr>
+map <leader>gt :CtrlPClearCache<cr>\|:CtrlP spec<cr>
+
+
+" Down and up lines single row even for wrapped lines
+nnoremap j gj
+nnoremap k gk
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Resize vertical split
+nnoremap <leader>V :exe "vertical resize +10"<CR>
+nnoremap <leader>v :exe "vertical resize -10"<CR>
+
+" Resize horizontal split
+nnoremap <leader>H :exe "resize +10"<CR>
+nnoremap <leader>h :exe "resize -10"<CR>
+
+" Go to file in new splits/tabs
+" nmap gfv :vertical wincmd f<CR>
+" nmap gfs :exe "wincmd f"<CR>
+" nmap gft :exe "wincmd gf"<CR>
+
+" Let syntastic use python3
+let g:syntastic_python_python_exec = 'python3'
+
+" find all tada's
+" command TADA vimgrep! /TODO\|FIXME\|BUG/j * | cw
+command! TADA silent! grep! "TODO\|FIXME\|BUG" |cw|redraw!
+
+" Automatic YouCompleteMe omni-completion
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+else
+  " let g:ycm_semantic_triggers['typescript'] = ['.']
+  let g:ycm_semantic_triggers =  {
+        \   'c' : ['->', '.'],
+        \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+        \             're!\[.*\]\s'],
+        \   'ocaml' : ['.', '#'],
+        \   'cpp,objcpp' : ['->', '.', '::'],
+        \   'perl' : ['->'],
+        \   'php' : ['->', '::'],
+        \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+        \   'ruby' : ['.', '::'],
+        \   'lua' : ['.', ':'],
+        \   'erlang' : [':'],
+        \ }
+endif
+
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
+" typescript-vim
+" Compilation errors in the QuickFix window
+" run ***make*** while editing
+" let g:typescript_compiler_binary = 'tsc'
+" let g:typescript_compiler_options = ''
+" autocmd QuickFixCmdPost [^l]* nested cwindow
+" autocmd QuickFixCmdPost    l* nested lwindow
+
+" for .hql files
+au BufNewFile,BufRead *.hql set filetype=sql
+" for .q files
+" au BufNewFile,BufRead *.q set filetype=sql
+
+let @y='"*yiw'
+noremap <leader>y viw"*y/<C-r>*<CR>
+noremap <leader>Y viw"*y<S-:>Ag <C-r>*<CR>
+
+" vue as html
+au BufRead,BufNewFile *.vue set ft=html
+
+" gf with vue and js
+set suffixesadd+=.js,.vue
+
+" highlight latest search
+set hlsearch
+nnoremap gD :exe "noh"<CR>
+
+" Mapping for airblade/vim-localorie
+nnoremap <silent> <leader>lt :call localorie#translate()<CR>
+nnoremap <silent> <leader>le :call localorie#expand_key()<CR>
+
+" Pretty format XML
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! FormatXML call DoPrettyXML()
+
+" FormatJson
+command! FormatJSON %!python -m json.tool
+
+set tags^=./.git/tags;
+
+" Markdown
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'sql']

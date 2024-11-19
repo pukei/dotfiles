@@ -1,0 +1,10 @@
+[[ -f ~/.whost ]] && source ~/.whost
+export LIBGL_ALWAYS_INDIRECT=1
+
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/workspace/go
+export PATH=$PATH:$GOPATH/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/sanyo/.sdkman"
+[[ -s "/home/sanyo/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sanyo/.sdkman/bin/sdkman-init.sh"

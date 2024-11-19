@@ -1,0 +1,40 @@
+alias be="./bin/bundle exec"
+alias bi="./bin/bundle install"
+# alias br="./bin/rails s -b 0.0.0.0"
+alias br="[[ -f ~/.whost  ]] && source ~/.whost; ./bin/rails s -b 0.0.0.0"
+alias bc="./bin/rails c"
+alias bs="./bin/rspec"
+
+alias gti="git"
+alias w=cd ~/workspace/$1
+
+alias work="cd /mnt/c/Users/pares/Workspace"
+
+alias rdm="./bin/rake db:migrate && ./bin/rake db:migrate RAILS_ENV=test && gco db/schema.rb"
+alias rdmt="./bin/rake db:migrate RAILS_ENV=test && gco db/schema.rb"
+
+alias snap="echo \"gem 'bootsnap', '>= 1.1.0', '< 1.4.2', require: false\" >> Gemfile && echo \"require 'bootsnap/setup'\" >> config/boot.rb && bi"
+
+# take-over tmux from a different display
+alias takeover="tmux detach -a"
+
+# trigger tmux-yank
+alias tank="bash ~/.tmux/plugins/tmux-yank/yank.tmux"
+
+alias tmux.rb="ruby ~/dotfiles/tmux.rb"
+
+alias ghd="cd ~; nohup /usr/bin/github-desktop &; cd -"
+
+# Set memory limit to VM
+# https://github.com/microsoft/WSL/issues/4166#issuecomment-526725261
+# Free up vmmem memory usage
+# https://github.com/microsoft/WSL/issues/4166#issuecomment-628493643
+alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
+
+# system date is not same with windows
+# https://github.com/microsoft/WSL/issues/4149
+# https://github.com/microsoft/WSL/issues/4114#issuecomment-620527581
+alias sync_clock="sudo hwclock --hctosys"
+
+# retart network-manager
+alias restart_network="sudo /etc/init.d/network-manager restart"

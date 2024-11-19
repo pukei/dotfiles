@@ -1,2 +1,4 @@
 !bin
 vim/bundle/
+lein/repl-history
+zshrc.real.local

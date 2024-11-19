@@ -1,0 +1,7 @@
+sudo /etc/init.d/mysql stop
+
+sudo /etc/init.d/redis-server stop
+
+sudo /etc/init.d/postgresql stop
+
+# sudo mongod --shutdown --dbpath ~/mongodb/data/db --logpath ~/mongodb/log/mongod.log

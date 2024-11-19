@@ -16,8 +16,11 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
+  editor = vim
 [merge]
   ff = only
+  tool = vimdiff
+  conflictstyle = diff3
 [commit]
   template = ~/.gitmessage
 [fetch]
@@ -28,3 +31,19 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+[user]
+  name = paresharma
+  email = paresh.brahm@gmail.com
+[mergetool]
+  prompt = false
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
